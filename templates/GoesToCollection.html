@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Amusement Park Miniworld</title>
+    <link rel="stylesheet" href="../resources/style.css" type="text/css">
+
+
+</head>
+
+<body>
+    <h1>Goes_To</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Park ID</td>
+                <td>Visitor Ticket ID</td>
+            </tr>
+        </thead>
+        {{range $value := .GoesToCollection}}
+        <tr>
+            <td>{{$value.ParkID}}</td>
+            <td>{{$value.VisitorTicketID}}</td>
+        </tr>
+        {{end}}
+    </table>
+    
+    <div style="margin: 20px 0">
+        <form action="/insert/" method="POST">
+            INSERT INTO 
+            <span style="font-family: Courier, sans-serif">
+                Goes_To
+            </span>
+            VALUES
+            <input class="insertInto" name="insertValue" type="text" 
+                placeholder="Park_ID INT FK, Visitor_Ticket_ID INT FK">
+            <input type="text" name="dbName" value="Goes_To" style="display:none">
+            <input type="submit" value="Insert">
+        </form>
+        Example input: <span style="font-family: Courier, sans-serif">30303, 11111</span>
+
+    </div>
+    <div style="text-align: center; font-size: 10px">
+        [<a href="/">back to home</a>]
+    </div>
+</body>
+</html>

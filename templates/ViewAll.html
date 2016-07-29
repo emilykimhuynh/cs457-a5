@@ -1,0 +1,147 @@
+<html>
+<head>
+    <title>Amusement Park Miniworld</title>
+    <link rel="stylesheet" href="../resources/style.css" type="text/css">
+
+
+</head>
+
+<body>
+<h1>All Relations</h1>
+
+<h1>Amusement Parks</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Id</td>
+        </tr>
+    </thead>
+
+    {{range $key, $value := .ParkCollection}}
+    <tr>
+        <td>{{$value.Name}}</td>
+        <td>{{$key}}</td>
+    </tr>
+    {{end}}
+</table>
+
+<h1>Attractions</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Manager ID</td>
+            <td>Park ID</td>
+        </tr>
+    </thead>
+    {{range $key, $value := .AttractionCollection}}
+    <tr>
+        <td>{{$key}}</td>
+        <td>{{$value.MgrID}}</td>
+        <td>{{$value.ParkID}}</td>
+    </tr>
+    {{end}}
+</table>
+
+<h1>Locations</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Address</td>
+            <td>Park ID</td>
+        </tr>
+    </thead>
+    {{range $key, $value := .LocationCollection}}
+    <tr>
+        <td>{{$key}}</td>
+        <td>{{$value.ParkID}}</td>
+    </tr>
+    {{end}}
+</table>
+
+<h1>Visitors</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Fast Pass</td>
+            <td>Ticket ID</td>
+        </tr>
+    </thead>
+    {{range $key, $value := .VisitorCollection}}
+    <tr>
+        <td>{{$value.Name}}</td>
+        <td>{{$value.FastPass}}</td>
+        <td>{{$key}}</td>
+    </tr>
+    {{end}}
+</table>
+
+<h1>Employees</h1>
+<table>
+    <thead>
+        <tr>
+            <td>First name</td>
+            <td>Middle initial</td>
+            <td>Last name</td>
+            <td>ID</td>
+            <td>Birth Date</td>
+            <td>Salary</td>
+            <td>Hire Date</td>
+            <td>Address</td>
+            <td>Supervisor ID</td>
+            <td>Attraction Name</td>
+            <td>Attraction Date Assigned</td>
+        </tr>
+    </thead>
+    {{range $key, $value := .EmployeeCollection}}
+    <tr>
+        <td>{{$value.Fname}}</td>
+        <td>{{$value.Minit}}</td>
+        <td>{{$value.Lname}}</td>
+        <td>{{$key}}</td>
+        <td>{{$value.BirthDate}}</td>
+        <td>{{$value.Salary}}</td>
+        <td>{{$value.HireDate}}</td>
+        <td>{{$value.Address}}</td>
+        <td>{{$value.SupervisorID.Value}}</td>
+        <td>{{$value.AttractionName}}</td>
+        <td>{{$value.AttractionDateAssigned}}</td>
+    </tr>
+    {{end}}
+</table>
+
+<h1>Goes To</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Park ID</td>
+            <td>Visitor Ticket ID</td>
+        </tr>
+    </thead>
+    {{range $value := .GoesToCollection}}
+    <tr>
+        <td>{{$value.ParkID}}</td>
+        <td>{{$value.VisitorTicketID}}</td>
+    </tr>
+    {{end}}
+</table>
+
+<h1>Interacts With</h1>
+<table>
+    <thead>
+        <tr>
+            <td>Visitor Ticket ID</td>
+            <td>Attraction Name</td>
+        </tr>
+    </thead>
+    {{range $value := .InteractsWithCollection}}
+    <tr>
+        <td>{{$value.VisitorTicketID}}</td>
+        <td>{{$value.AttractionName}}</td>
+    </tr>
+    {{end}}
+</table>
+</body>
+</html>

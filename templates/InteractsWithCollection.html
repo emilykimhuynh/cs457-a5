@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Amusement Park Miniworld</title>
+    <link rel="stylesheet" href="../resources/style.css" type="text/css">
+
+
+</head>
+
+<body>
+    <h1>Interacts With</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Visitor Ticket ID</td>
+                <td>Attraction Name</td>
+            </tr>
+        </thead>
+        {{range $value := .InteractsWithCollection}}
+        <tr>
+            <td>{{$value.VisitorTicketID}}</td>
+            <td>{{$value.AttractionName}}</td>
+        </tr>
+        {{end}}
+    </table>
+    
+    <div style="margin: 20px 0">
+        <form action="/insert/" method="POST">
+            INSERT INTO 
+            <span style="font-family: Courier, sans-serif">
+                Interacts_With
+            </span>
+            VALUES
+            <input class="insertInto" name="insertValue" type="text" 
+                placeholder="Visitor_Ticket_ID INT FK, Attraction_Name STRING FK">
+            <input type="text" name="dbName" value="Interacts_With" style="display:none">
+            <input type="submit" value="Insert">
+        </form>
+        Example input: <span style="font-family: Courier, sans-serif">11111, 'Whomping Willow'</span>
+
+    </div>
+    <div style="text-align: center; font-size: 10px">
+        [<a href="/">back to home</a>]
+    </div>
+</body>
+</html>

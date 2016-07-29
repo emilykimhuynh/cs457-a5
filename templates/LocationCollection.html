@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Amusement Park Miniworld</title>
+    <link rel="stylesheet" href="../resources/style.css" type="text/css">
+
+
+</head>
+
+<body>
+    <h1>Locations</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Address</td>
+                <td>Park ID</td>
+            </tr>
+        </thead>
+        {{range $key, $value := .LocationCollection}}
+        <tr>
+            <td>{{$key}}</td>
+            <td>{{$value.ParkID}}</td>
+        </tr>
+        {{end}}
+    </table>
+    
+    <div style="margin: 20px 0">
+        <form action="/insert/" method="POST">
+            INSERT INTO 
+            <span style="font-family: Courier, sans-serif">
+                Location
+            </span>
+            VALUES
+            <input class="insertInto" name="insertValue" type="text" 
+                placeholder="'Address' STRING PK, Park_ID INT FK">
+            <input type="text" name="dbName" value="Location" style="display:none">
+            <input type="submit" value="Insert">
+        </form>
+        Example input: <span style="font-family: Courier, sans-serif">'Disney World Resort, Orlando, FL 32830', 10101</span>
+
+    </div>
+    <div style="text-align: center; font-size: 10px">
+        [<a href="/">back to home</a>]
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Amusement Park Miniworld</title>
+    <link rel="stylesheet" href="../resources/style.css" type="text/css">
+
+
+</head>
+
+<body>
+    <h1>VIEW: Park Names & Addresses</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Amusement Park Name</td>
+                <td>Address</td>
+            </tr>
+        </thead>
+        {{range $value := .ParkNameAndAddressView}}
+        <tr>
+            <td>{{$value.ParkName}}</td>
+            <td>{{$value.Address}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="resources/style.css" />
+    <title>Amusement Park Miniworld</title>
+</head>
+
+<body>
+    <h1>CS 457 Assignment 5</h1>
+    <strong>Pick a table to display:</strong>
+    <form action="/display/" method="POST">
+        <select name="tableName">
+            <option value="ViewAll">View all relations</option>
+            <option value="ParkCollection">Amusement Parks</option>
+            <option value="AttractionCollection">Attractions</option>
+            <option value="LocationCollection">Locations</option>
+            <option value="VisitorCollection">Visitors</option>
+            <option value="EmployeeCollection">Employees</option>
+            <option value="GoesToCollection">Goes To</option>
+            <option value="InteractsWithCollection">Interacts With</option>
+            <option value="ParkNameAndAddressView">VIEW: Park Name & Address</option>
+            <option value="VisitorNameAndParkNameView">VIEW: Visitor Names & Park Names</option>
+        </select>
+        <input type="submit" value="Go">
+    </form>
+    <span style="font-size: 75%">
+        You can insert tuples in each table by selecting them in the above form. 
+        If you enter invalid data, a server-side error will be generated.
+    </span>
+    <hr>
+    
+        <strong>Pick a query to display:</strong>
+
+        <br>
+        <br>
+    
+        Show names of all visitors at an amusement park.
+        <form action="/query/VisitorsAtParks" method="POST">
+            <input type="text" placeholder="Amusement Park Name" name="hostVariable">
+            <input type="submit" value="Query">
+        </form>
+    
+        Show first and last names of all employees working for an attraction.
+           <form action="/query/EmployeesWorkingAttractions" method="POST">
+            <input type="text" placeholder="Attraction Name" name="hostVariable">
+            <input type="submit" value="Query">
+        </form>
+        <span style="font-size: 75%">
+            You do not need quotes for the above input. Input is case sensitive.
+        </span>
+    <hr>
+    For reference, a diagram of the database schema can be found <a href="/resources/db_schema.pdf">here</a>.
+</body>
+</html>

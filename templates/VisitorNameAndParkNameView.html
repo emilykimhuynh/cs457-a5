@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Amusement Park Miniworld</title>
+    <link rel="stylesheet" href="../resources/style.css" type="text/css">
+
+
+</head>
+
+<body>
+    <h1>VIEW: Visitor Name & Park Name</h1>
+    <p>
+    This view shows the name of all visitors and the amusement park they are in.
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <td>Visitor Name</td>
+                <td>Amusement Park Name</td>
+            </tr>
+        </thead>
+        {{range $value := .VisitorNameAndParkNameView}}
+        <tr>
+            <td>{{$value.VisitorName}}</td>
+            <td>{{$value.ParkName}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>

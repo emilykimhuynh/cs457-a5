@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Amusement Park Miniworld</title>
+    <link rel="stylesheet" href="../resources/style.css" type="text/css">
+
+
+</head>
+
+<body>
+    <h1>Query: Employees Working at Attractions</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Employee First Name</td>
+                <td>Employee Last Name</td>
+                <td>Attraction Name</td>
+                <td>Amusement Park Name</td>
+            </tr>
+        </thead>
+        {{range $key, $value := .Rows}}
+        <tr>
+            <td>{{$value.FirstName}}</td>
+            <td>{{$value.LastName}}</td>
+            <td>{{$value.AttractionName}}</td>
+            <td>{{$value.ParkName}}</td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>
